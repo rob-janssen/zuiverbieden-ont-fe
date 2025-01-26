@@ -41,7 +41,9 @@ const LandingPage = () => {
                   text-gray-900 sm:text-4xl"
         >
           <span className="block">Slow and Steady Growth</span>
-          <span className="block text-amber-500">With minimum effort.</span>
+          <span className="block text-amber-500">
+            With minimum effort. Yeah let's go!
+          </span>
         </h2>
         <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">IMAGE</div>
       </div>
