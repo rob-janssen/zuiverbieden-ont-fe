@@ -1,5 +1,5 @@
 import customFetch from "../utils/customFetch";
-import { Link, redirect, Form, useNavigate } from "react-router-dom";
+import { redirect, Form } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const action = async ({ request }: { request: Request }) => {
@@ -11,13 +11,13 @@ export const action = async ({ request }: { request: Request }) => {
     toast.success("Login succesful");
     return redirect("/admin");
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    // toast.error(error?.data?.message);
     return error;
   }
 };
 
 const AdminSignin = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
