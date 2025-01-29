@@ -25,10 +25,6 @@ const navigation = [
     name: "Item management",
     href: "/admin/itemmanagement",
     current: window.location.pathname === "/admin/itemmanagement",
-    submenus: [
-      { name: "Submenu 1", href: "#" },
-      { name: "Submenu 2", href: "#" },
-    ],
   },
 ];
 
@@ -79,19 +75,6 @@ const Sidebar = () => {
                     )}
                   >
                     {item.name}
-                    {item.submenus && (
-                      <DisclosurePanel className="space-y-1">
-                        {item.submenus.map((submenu) => (
-                          <Link
-                            key={submenu.name}
-                            to={submenu.href}
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                          >
-                            {submenu.name}
-                          </Link>
-                        ))}
-                      </DisclosurePanel>
-                    )}
                   </Link>
                 ))}
               </div>
@@ -164,7 +147,7 @@ const Sidebar = () => {
               <Disclosure>
                 {() => (
                   <>
-                    <DisclosureButton
+                    {/* <DisclosureButton
                       aria-current={item.current ? "page" : undefined}
                       className={classNames(
                         item.current
@@ -172,28 +155,16 @@ const Sidebar = () => {
                           : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "block w-full text-left rounded-md px-3 py-2 text-base font-medium"
                       )}
+                    > */}
+                    <Link
+                      key={item.name}
+                      aria-current={item.current ? "page" : undefined}
+                      to={item.href}
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </DisclosureButton>
-                    {item.submenus && (
-                      <DisclosurePanel className="space-y-1">
-                        {item.submenus.map((submenu) => (
-                          <Link
-                            key={submenu.name}
-                            to={submenu.href}
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                          >
-                            {submenu.name}
-                          </Link>
-                        ))}
-                      </DisclosurePanel>
-                    )}
+                      {item.name}
+                    </Link>
+                    {/* </DisclosureButton> */}
                   </>
                 )}
               </Disclosure>
